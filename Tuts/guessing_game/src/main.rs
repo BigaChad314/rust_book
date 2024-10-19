@@ -22,7 +22,7 @@ fn main() {
                                 // "&"mut: argument가 reference라는 뜻. (default: immutable.)
         .expect("Failed to read line");
 
-    let guess: u32 = guess.trim().parse().expect("Please type a number!"); // input을 u32 int. 로 바꾼다.
+    let guess: u32 = guess.trim().parse().expect("Please type a number!"); // "Shadowing": input을 u32 int. 로 바꾼다.
 
     println!("You guessed: {}", guess);
 
