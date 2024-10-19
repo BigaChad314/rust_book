@@ -9,6 +9,8 @@ fn main() {
 
     // Part 2. Generating random number
     let secret_number = rand::thread_rng().gen_range(1..=100);
+
+    // Last remark: to play an actual game, delete the println for {secret_number} below.
     println!("The secret number is: {secret_number}");
 
     // Part 4. Loop을 통해 Guess를 여러번 반복할 수 있게.
@@ -27,13 +29,20 @@ fn main() {
         // "Shadowing": input을 u32 int. 로 바꾼다.
         // trim.(): slice랑 유사. 공백을 지운다.
         // parse.(): string을 다른 type으로 변환한다. 이 경우, guess: u32 로변환 (32-bit integer)
-        let guess: u32 = guess.trim().parse().expect("Please type a number!"); 
+        let guess: u32 = match guess.trim().parse() {
+            Ok(num) => num,
+            Err(_) => continue,
+        };
+        println!("You guessed: {guess}");
 
         // Part 3. Matching guess
         match guess.cmp(&secret_number) { // 'guess' 입력 값과 'secret_number'를 비교. 
             Ordering::Less => println!("Too small!"),
             Ordering::Greater => println!("Too big!"),
-            Ordering::Equal => println!("You win!"),
+            Ordering::Equal => {
+                println!("You win!");
+                break;
+            }
         }
     }
 }
