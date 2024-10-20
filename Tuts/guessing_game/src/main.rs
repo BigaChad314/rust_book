@@ -8,7 +8,7 @@ fn main() {
     println!("Guess the number!");
 
     // Part 2. Generating random number
-    let secret_number = rand::thread_rng().gen_range(1..=100);
+    let secret_number = rand::thread_rng().gen_range(-10..=-1);
 
     // Last remark: to play an actual game, delete the println for {secret_number} below.
     println!("The secret number is: {secret_number}");
@@ -28,8 +28,8 @@ fn main() {
 
         // "Shadowing": input을 u32 int. 로 바꾼다.
         // trim.(): slice랑 유사. 공백을 지운다.
-        // parse.(): string을 다른 type으로 변환한다. 이 경우, guess: u32 로변환 (32-bit integer)
-        let guess: u32 = match guess.trim().parse() {
+        // parse.(): string을 다른 type으로 변환한다. 이 경우, guess: u32 로변환 (32-bit unsigned integer; 양수일때. 음수까지 포함 = i32)
+        let guess: i32 = match guess.trim().parse() {
             Ok(num) => num,
             Err(_) => continue,
         };
