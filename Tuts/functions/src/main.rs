@@ -37,4 +37,28 @@ fn main() {
     };
 
     println!("The value of y is: {y}");
+
+    main2(); // calling main2().
+    main3();
+}
+
+// functions with return values
+fn five() -> i32 {
+    5
+}
+
+fn main2() {
+    let x = five();
+
+    println!("The value of x is: {x}");
+}
+
+fn main3() {
+    let z = plus_one(5);
+
+    println!("The value of z is: {z}");
+}
+
+fn plus_one(x: i32) -> i32 {
+    x + 1 //semicolon(;)이 있으면 function에서 값이 return 되지 않음.
 }
