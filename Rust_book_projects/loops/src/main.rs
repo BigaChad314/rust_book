@@ -4,7 +4,8 @@ fn main() {
         break
     }
     // counting();
-    disambiguate_multiple_loops();
+    // disambiguate_multiple_loops();
+    conditional_while();
 }
 
 fn counting() {
@@ -29,7 +30,7 @@ fn disambiguate_multiple_loops() {
 
         loop {
             println!("remaining = {remaining}");
-            if remaining == 9 {
+            if remaining == 8 {
                 break;
             }
             if count == 2 {
@@ -41,4 +42,16 @@ fn disambiguate_multiple_loops() {
         count += 1;
     }
     println!("End count = {count}");
+}
+
+fn conditional_while() {
+    let mut number = 3;
+
+    while number != 0 {
+        println!("{number}!");
+
+        number -= 1;
+    }
+
+    println!("LIFTOFF!!!");
 }
