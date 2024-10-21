@@ -5,7 +5,9 @@ fn main() {
     }
     // counting();
     // disambiguate_multiple_loops();
-    conditional_while();
+    // conditional_while();
+    // for_loop();
+    count_down();
 }
 
 fn counting() {
@@ -53,5 +55,20 @@ fn conditional_while() {
         number -= 1;
     }
 
+    println!("LIFTOFF!!!");
+}
+
+fn for_loop() {
+    let a = [10, 20, 30, 40, 50];
+
+    for element in a {
+        println!("the value is: {element}");
+    }
+}
+
+fn count_down() {
+    for number in (1..4).rev() {
+        println!("{number}!");
+    }
     println!("LIFTOFF!!!");
 }
